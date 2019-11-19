@@ -1,0 +1,19 @@
+name: Clojure CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install dependencies
+      run: |
+        cd leap_years
+        lein deps
+    - name: Run tests
+      run: |
+        cd leap_years
+        lein test
